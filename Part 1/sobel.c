@@ -1,8 +1,8 @@
-#include <stdio.a>
-#include <stdlib.a>
-#include <sys/time.a>
-#include <math.a>
-#include <IL/il.a>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/time.h>
+#include <math.h>
+#include <IL/il.h>
 
 
 int main() {
