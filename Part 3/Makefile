@@ -2,26 +2,25 @@ CXX=g++
 CXXFLAGS= -g -G -O3 -march=native
 LDLIBS=`pkg-config --libs opencv`
 
-sobelShared: sobelShared.cu
+sobel: sobelShared.cu
 	nvcc -o $@ $< $(LDLIBS)
-
-
-grayscaleShared: grayscaleShared.cu
+	
+grayscale: grayscaleShared.cu
 		nvcc -o $@ $< $(LDLIBS)
 
-blurShared: blurShared.cu
+blur: blurShared.cu
 		nvcc -o $@ $< $(LDLIBS)
 
-embossShared: embossShared.cu
+emboss: embossShared.cu
 		nvcc -o $@ $< $(LDLIBS)
 
-erodeShared: erodeShared.cu
+erode: erodeShared.cu
 		nvcc -o $@ $< $(LDLIBS)
 
-dilateShared: dilateShared.cu
+dilate: dilateShared.cu
 		nvcc -o $@ $< $(LDLIBS)
 
 .PHONY: clean
 
 clean:
-	rm sobelShared blurShared embossShared erodeShared dilateShared grayscaleShared *.jpg
+	rm sobel blur emboss erode dilate grayscale *.jpg
