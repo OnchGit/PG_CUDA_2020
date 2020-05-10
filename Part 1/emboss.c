@@ -36,7 +36,7 @@ int main() {
 		}
 	}
   gettimeofday(&stop, 0);
-  printf("time %li\n", (stop.tv_sec*1000000+stop.tv_usec) - (start.tv_sec*1000000+start.tv_usec));
+  printf("time %li %s\n", (((stop.tv_sec*1000000+stop.tv_usec) - (start.tv_sec*1000000+start.tv_usec)) / 1000), "ms");
   ilSetData(end_result);
   ilEnable(IL_FILE_OVERWRITE);
   ilSaveImage("EmbOutput.jpg");

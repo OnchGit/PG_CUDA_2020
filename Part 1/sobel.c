@@ -29,7 +29,8 @@ int main() {
 				a = data[((j - 1) * width + i - 1) * 3 + c] - data[((j - 1) * width + i + 1) * 3 + c]
 				+ 2 * data[( j * width + i - 1) * 3 + c] - 2 * data[( j * width + i + 1) * 3 + c]
 				+ data[((j + 1) * width + i - 1) * 3 + c] - data[((j + 1) * width + i + 1) * 3 + c];
-				b =  data[((j - 1) * width + i - 1) * 3 + c] - [((j + 1) * width + i - 1) * 3 + c]
+				
+				b =  data[((j - 1) * width + i - 1) * 3 + c] - data[((j + 1) * width + i - 1) * 3 + c]
 				+ 2 * data[((j - 1) * width + i) * 3 + c] - 2 * data[((j + 1) * width + i    ) * 3 + c]
 				+ data[((j - 1) * width + i + 1) * 3 + c] - data[((j + 1) * width + i + 1) * 3 + c];
 				res = a*a + b*b;
@@ -39,7 +40,7 @@ int main() {
 		}
 	}
   gettimeofday(&stop, 0);
-  printf("time %li\n", (stop.tv_sec*1000000+stop.tv_usec) - (start.tv_sec*1000000+start.tv_usec));
+  printf("time %li %s\n", (((stop.tv_sec*1000000+stop.tv_usec) - (start.tv_sec*1000000+start.tv_usec)) / 1000), "ms");
   ilSetData(end_result);
   ilEnable(IL_FILE_OVERWRITE);
   ilSaveImage("SobelOutput.jpg");
