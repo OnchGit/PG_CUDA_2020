@@ -41,7 +41,7 @@ int main() {
 	}
   gettimeofday(&stop, 0);
   printf("time %li\n", (stop.tv_sec*1000000+stop.tv_usec) - (start.tv_sec*1000000+start.tv_usec));
-  ilSetData(out);
+  ilSetData(end_result);
   ilEnable(IL_FILE_OVERWRITE);
   ilSaveImage("SobelOutput.jpg");
   ilDeleteImages(1, &image);

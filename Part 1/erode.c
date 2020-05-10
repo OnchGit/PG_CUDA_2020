@@ -17,7 +17,7 @@ int main() {
   bpp = ilGetInteger(IL_IMAGE_BYTES_PER_PIXEL);
   format = ilGetInteger(IL_IMAGE_FORMAT);
   unsigned char* data = ilGetData();
-  unsigned char* out = (unsigned char*)malloc(width*height*bpp);
+  unsigned char* end_result = (unsigned char*)malloc(width*height*bpp);
   unsigned int i, j, c;
   int a, d, b, res;
   struct timeval start, stop;
@@ -34,16 +34,16 @@ int main() {
 				res = fmax (a, d);
 				res = fmax (res, b);
 				res = res > 255 * 255 ? res = 255 * 255 : res;
-				out[(j * width + i) * 3 + c] = res;
+				end_result[(j * width + i) * 3 + c] = res;
 			}
 		}
 	}
   gettimeofday(&stop, 0);
   printf("time %li\n", (stop.tv_sec*1000000+stop.tv_usec) - (start.tv_sec*1000000+start.tv_usec));
-  ilSetData(out);
+  ilSetData(end_result);
   ilEnable(IL_FILE_OVERWRITE);
   ilSaveImage("ErosionFilterOutput.jpg");
   ilDeleteImages(1, &image);
-  free(out);
+  free(end_result);
 
 }
