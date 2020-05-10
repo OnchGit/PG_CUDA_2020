@@ -2,9 +2,6 @@ CXX=g++
 CXXFLAGS= -g -G -O3 -march=native
 LDLIBS=`pkg-config --libs opencv`
 
-grayscale: grayscaleStream.cu
-	nvcc -o $@ $< $(LDLIBS)
-
 sobel: sobelStream.cu
 		nvcc -o $@ $< $(LDLIBS)
 
@@ -23,4 +20,4 @@ emboss: embossStream.cu
 .PHONY: clean
 
 clean:
-	rm sobel blur emboss erode dilate grayscale *.jpg
+	rm sobel blur emboss erode dilate *.jpg
